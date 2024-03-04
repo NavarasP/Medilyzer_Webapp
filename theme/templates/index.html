@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Temporary
+{% endblock title %}
+
+{% load static tailwind_tags %}
+
+{% tailwind_css %}
+
+
+
+{% block content %}
+    <main class="pt-20 min-h-screen" >
+
+            
+                
+                <div class="">
+                    <h1 class="text-2xl text-slate-700 text-center" style="text-transform: uppercase;">
+                        <b>Handwritten Medical Prescription Analyzer</b>
+                    </h1>
+                </div>
+                <div style="background-image: url('static/media/Prescription_OCR_header-md.avif'); background-size:100% 100%; background-repeat: no-repeat;" class="pt-96">
+
+                    {% for message in messages %}
+                    <div id="message_{{ forloop.counter }}" class="absolute top-36 bg-white text-2xl p-4 mb-4 rounded-md timeout-10000">
+                        <p class="text-sm text-black">{{ message|safe }}</p>
+                    </div>
+                    <script>
+                        setTimeout(function() {
+                            var messageElement = document.getElementById('message_{{ forloop.counter }}');
+                            messageElement.classList.add('opacity-0', 'animate-fadeOut');
+                        }, 10000); // 5000 milliseconds = 5 seconds
+                    </script>
+                {% endfor %}
+        </div>
+
+        
+
+        <div class="text-center font-semibold text-xl">We are here to help you decipher your doctor’s handwriting.</div>
+        <div class="flex pt-10">
+    <!-- Left part for text -->
+    <div class="flex-1">
+        <div class="pl-12 mt-20 text-xl">
+            <div class="text-blue-500 font-semibold">STEP 1</div>
+            <div class="font-bold">Upload your Prescription</div>
+            <div>Make sure the croped medicine portion prescription is clearly visible and the photo is not blurry.</div>
+        </div>
+    </div>
+    <!-- Right part for the image -->
+    <div class="flex-1">
+        <img src="static/media/Prescription_OCR_step_1-md.avif" alt="" class="w-full h-full pl-10 pr-5">
+    </div>
+</div>
+
+<div class="flex pt-10">
+    <!-- Left part for text -->
+    <div class="flex-1">
+        <img src="static/media/Prescription_OCR_step_2-md.avif" alt="" class="w-full h-full pl-10 pr-5">
+    </div>
+    
+    <!-- Right part for the image -->
+    <div class="flex-1">
+        <div class="pl-12 mt-20 text-xl">
+            <div class="text-blue-500 font-semibold">STEP 2</div>
+            <div class="font-bold">Validating your Prescription</div>
+            <div>
+                Make sure to check if the information matches your prescription and also check the uploaded prescription is only having medicine details except other details..</div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="flex pt-10">
+    <!-- Left part for text -->
+    <div class="flex-1">
+        <div class="pl-12 mt-20 text-xl">
+            <div class="text-blue-500 font-semibold">STEP 3</div>
+            <div class="font-bold">Convert your Prescription</div>
+            <div>After uploading your prescription click on convert prescription button.</div>
+        </div>
+    </div>
+    <!-- Right part for the image -->
+    <div class="flex-1">
+        <img src="static/media/Prescription_OCR_step_1-md.avif" alt="" class="w-full h-full pl-10 pr-5">
+    </div>
+</div>
+
+    </main>
+{% endblock %}

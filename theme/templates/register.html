@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static tailwind_tags %}
+
+{% block title %}
+temporary
+{% endblock title %}
+{% tailwind_css %}
+{% block content %}
+
+
+<div class="flex justify-center min-h-screen pt-20">
+    <div class=" md:w-1/2 w-5/6 drop-shadow-lg flex justify-center items-center pt-0">
+        <div>
+
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group mb-4 text-center">
+                    {% if error_message %}
+                        <div class="alert alert-danger text-red-600" role="alert">
+                            {{ error_message }}
+                        </div>
+                    {% endif %}
+                </div>
+    
+                <div>
+                    <!-- <span class="text-sm text-slate-700 ">Hello!</span> -->
+                    <h1 class="text-4xl text-slate-600 font-bold text-center">Create your account</h1>
+                </div>
+                <div class="grid grid-cols-1 gap-6 mt-4 grid-cols-2">
+                    
+                    <div class="">
+                        <label class=" text-md text-slate-700" for="first_name">First name</label>
+                        <input class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" type="text"
+                            name="first_name" required placeholder="John">
+                    </div>
+                    <div class="">
+                        <label class=" text-md text-slate-700" >Last name</label>
+                        <input class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" type="text"
+                            name="last_name" required placeholder="Smith">
+                    </div>
+
+                    <div class="">
+                        <label class="text-md text-slate-700">Username</label>
+                        <input class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" type="text" name="username"
+                            required placeholder="johnsmith">
+                        </div>
+                    
+                    <div class="">
+                        <label class="block text-md mb-2 text-slate-700">Email</label>
+                        <input class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" type="email"
+                            name="email" required placeholder="smith@gmail.com">
+                    </div>
+                
+                    
+
+                    <div class="">
+                    <label class="block text-md mb-2 text-slate-700" >Password</label>
+                    <input class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" type="password"
+                        name="password" required placeholder="**********" >
+                    </div>
+                    <div class="">
+                    <label class="block text-md mb-2 text-slate-700" >Confirm Password</label>
+                    <input class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" type="password"
+                        name="password1" required placeholder="**********" >
+                    </div>
+                </div>
+                    <div class="">
+                    <button
+                        class="bg-[#007B8F] text-white rounded-md py-2 w-full hover:bg-[#007B8F] font-semibold mt-5">REGISTER</button>
+                    
+                    </div>
+                
+            </form>
+
+
+            <!-- {% if error_message %}
+            <p class="text-red-500 mt-4">
+                Registration failed: {{ error_message }}
+            </p>
+            {% endif %} -->      
+        </div>
+    </div>
+</div>
+
+{% endblock %}

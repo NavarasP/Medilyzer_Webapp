@@ -1,0 +1,275 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Handwritten Medical Prescription Analyzer</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+	{% tailwind_css %}
+	<style>
+		footer{
+			background-image: linear-gradient(to bottom, white, #007B8F);
+
+		}
+	</style>
+</head>
+
+
+<body class="bg-gray-50 font-sans leading-normal tracking-normal">
+
+	<div class="w-full border-b-2 shadow-lg fixed bg-white">
+		<div class="sm:absolute md:block text-white hidden"><a class=" cursor-default" href="/admin"></a></div>
+
+	<!-- navbar -->
+	<!-- component -->
+	<header class=" bg-white shadow-md flex items-center justify-between px-8">
+		<!-- logo -->
+		<!-- <h1 class="w-3/12">
+        <a href="">
+          <svg viewBox="0 0 248 31" class="h-6 w-auto hover:text-green-500 duration-200">
+			<path d="M25.517 0C18.712 0 14.46 3.382 12.758 10.146c2.552-3.382 5.529-4.65 8.931-3.805 1.941.482 3.329 1.882 4.864 3.432 2.502 2.524 5.398 5.445 11.722 5.445 6.804 0 11.057-3.382 12.758-10.145-2.551 3.382-5.528 4.65-8.93 3.804-1.942-.482-3.33-1.882-4.865-3.431C34.736 2.92 31.841 0 25.517 0zM12.758 15.218C5.954 15.218 1.701 18.6 0 25.364c2.552-3.382 5.529-4.65 8.93-3.805 1.942.482 3.33 1.882 4.865 3.432 2.502 2.524 5.397 5.445 11.722 5.445 6.804 0 11.057-3.381 12.758-10.145-2.552 
+			3.382-5.529 4.65-8.931 3.805-1.941-.483-3.329-1.883-4.864-3.432-2.502-2.524-5.398-5.446-11.722-5.446z" fill="#22C55E">
+		</path>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M76.546 12.825h-4.453v8.567c0 2.285 1.508 2.249 4.453 2.106v3.463c-5.962.714-8.332-.928-8.332-5.569v-8.567H64.91V9.112h3.304V4.318l3.879-1.143v5.937h4.453v3.713zM93.52 9.112h3.878v17.849h-3.878v-2.57c-1.365 1.891-3.484 3.034-6.285 3.034-4.884 0-8.942-4.105-8.942-9.389 0-5.318 4.058-9.388 8.942-9.388 2.801 0 4.92 1.142 6.285 2.999V9.112zm-5.674 14.636c3.232 0 5.674-2.392 5.674-5.712s-2.442-5.711-5.674-5.711-5.674 2.392-5.674 5.711c0 3.32 
+		2.442 5.712 5.674 5.712zm16.016-17.313c-1.364 0-2.477-1.142-2.477-2.463a2.475 2.475 0 012.477-2.463 2.475 2.475 0 012.478 2.463c0 1.32-1.113 2.463-2.478 2.463zm-1.939 20.526V9.112h3.879v17.849h-3.879zm8.368 0V.9h3.878v26.06h-3.878zm29.053-17.849h4.094l-5.638 17.849h-3.807l-3.735-12.03-3.771 12.03h-3.806l-5.639-17.849h4.094l3.484 12.315 3.771-12.315h3.699l3.734 12.315 3.52-12.315zm8.906-2.677c-1.365 0-2.478-1.142-2.478-2.463a2.475 2.475 0 012.478-2.463 2.475 2.475 0 012.478 2.463c0 
+		1.32-1.113 2.463-2.478 2.463zm-1.939 20.526V9.112h3.878v17.849h-3.878zm17.812-18.313c4.022 0 6.895 2.713 6.895 7.354V26.96h-3.878V16.394c0-2.713-1.58-4.14-4.022-4.14-2.55 0-4.561 1.499-4.561 5.14v9.567h-3.879V9.112h3.879v2.285c1.185-1.856 3.124-2.749 5.566-2.749zm25.282-6.675h3.879V26.96h-3.879v-2.57c-1.364 1.892-3.483 3.034-6.284 3.034-4.884 0-8.942-4.105-8.942-9.389 0-5.318 4.058-9.388 8.942-9.388 2.801 0 4.92 1.142 6.284 2.999V1.973zm-5.674 21.775c3.232 0 5.674-2.392 
+		5.674-5.712s-2.442-5.711-5.674-5.711-5.674 2.392-5.674 5.711c0 3.32 2.442 5.712 5.674 5.712zm22.553 3.677c-5.423 0-9.481-4.105-9.481-9.389 0-5.318 4.058-9.388 9.481-9.388 3.519 0 6.572 1.82 8.008 4.605l-3.34 1.928c-.79-1.678-2.549-2.749-4.704-2.749-3.16 0-5.566 2.392-5.566 5.604 0 3.213 2.406 5.605 5.566 5.605 2.155 0 3.914-1.107 4.776-2.749l3.34 1.892c-1.508 2.82-4.561 4.64-8.08 4.64zm14.472-13.387c0 3.249 9.661 1.285 9.661 7.89 0 3.57-3.125 5.497-7.003 5.497-3.591 
+		0-6.177-1.607-7.326-4.177l3.34-1.927c.574 1.606 2.011 2.57 3.986 2.57 1.724 0 3.052-.571 3.052-2 0-3.176-9.66-1.391-9.66-7.781 0-3.356 2.909-5.462 6.572-5.462 2.945 0 5.387 1.357 6.644 3.713l-3.268 1.82c-.647-1.392-1.904-2.035-3.376-2.035-1.401 0-2.622.607-2.622 1.892zm16.556 0c0 3.249 9.66 1.285 9.66 7.89 0 3.57-3.124 5.497-7.003 5.497-3.591 0-6.176-1.607-7.326-4.177l3.34-1.927c.575 1.606 2.011 2.57 3.986 2.57 1.724 0 3.053-.571 3.053-2 0-3.176-9.66-1.391-9.66-7.781 
+		0-3.356 2.908-5.462 6.572-5.462 2.944 0 5.386 1.357 6.643 3.713l-3.268 1.82c-.646-1.392-1.903-2.035-3.375-2.035-1.401 0-2.622.607-2.622 1.892z" fill="currentColor"></path></svg>
+        </a>
+    </h1> -->
+
+
+		<!-- navigation -->
+		<nav class="font-semibold text-lg md:flex md:items-center md:justify-between">
+		<div class="flex justify-between items-center">
+			<div class="text-[#007B8F;] flex items-center justify-between">
+			<span class="font-serif text-4xl font-semibold ml-1"><a
+				href="/">M</a></span>
+				<span class="font-serif text-2xl font-semibold tracking-tight"><a
+					href="/">EDILYZE</a></span>
+					
+					<span class="font-serif text-4xl font-semibold tracking-tight "><a
+						href="/">R</a></span>
+			</div>
+		
+
+		<!-- <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+			<span class="sr-only">Open main menu</span>
+			<svg id="burger" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black lg:hidden cursor-pointer"
+			fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+		</svg>
+		</button> -->
+		<!-- <div id="menu" class="pt-4 pb-4 hidden lg:flex lg:flex-row lg:items-end "> -->
+			
+				
+				
+				<ul class="md:ml-96 z-[-1] md:z-auto md:static absolute font-[poppins] md:flex md:items-center text-gray-800 lg:px-0 px-10 md:pb-0 pb-3 pt-2 md:static md:bg-white bg-[#007B8F] md:w-auto w-full duration-700 ease-in left-[-100%]">
+					<li
+						class="md:pl-14 mx-4 md:my-5 my-6">
+						<a href="/" class="text-xl lg:py-4 lg:px-1.5 py-1.5 px-1.5 border-b-2 border-white border-opacity-0 hover:border-opacity-100 hover:text-white md:hover:text-blue-500 hover:border-white md:hover:border-blue-400 duration-200 cursor-pointer">Home</a>
+					</li>
+					<li
+					class="mx-4 md:my-0 my-6">
+					<a href="{% url 'convert' %}" class="text-xl lg:py-4 lg:px-1.5 py-1.5 px-1.5 border-b-2 border-white md:hover:border-blue-400 border-opacity-0 hover:border-opacity-100 hover:text-white md:hover:text-blue-500 hover:border-white duration-200 cursor-pointer">Convert</a>
+					</li>
+					<li
+					class="mx-4 md:my-0 my-6">
+					<a href="{% url 'about' %}" class="text-xl lg:py-4 lg:px-1.5 py-1.5 px-1.5 border-b-2 border-white md:hover:border-blue-400 border-opacity-0 hover:border-opacity-100 hover:text-white md:hover:text-blue-500 hover:border-white duration-200 cursor-pointer">About</a>
+					</li>
+					<button class="text-xl pt-0 lg:py-4 lg:px-1.5 py-1.5 px-1.5 flex mx-4 md:my-0 my-6 border-b-2 border-white md:hover:border-blue-400 border-opacity-0 hover:border-opacity-100 hover:text-white md:hover:text-blue-500 hover:border-white duration-200">
+            <a href="{% url 'register' %}" class="">
+				Sign Up
+				<i class="fa-solid fa-user"></i>
+               
+            </a>
+					</button>
+				
+						{% if user.is_authenticated %}
+							<h4 class="mx-4 md:my-0 my-6 text-lg text-slate-600 hidden sm:block">Hello <span class="font-semibold">{{user.username}}!</span></h4>
+							<li class="flex hover:bg-slate-700 duration-300 font-bold hover:text-white rounded py-2.5 px-3">
+								<a href="{% url 'logout' %}"
+									class="text-xl p-4 text-gray-800 rounded-md hover:bg-gray-700 hover:text-white">Log
+									out</a>
+							</li>
+			
+						{% else %}
+							<!-- <li class="md:mx-4 transition ease-in-out p-2 duration-300 hover:bg-slate-700 rounded">
+			
+								<a href="{% url 'login' %}"
+									class="text-gray-800 hover:text-white font-bold">Log
+									in <i class="fa-solid fa-right-to-bracket"></i></a>
+							</li> -->
+
+							<button class="text-xl flex pt-0 mx-3 md:my-0 hover:bg-slate-700 duration-300 font-bold hover:text-white rounded lg:py-2.5 lg:px-2.5 py-1.5 px-2">
+								<a href="{% url 'login' %}">Log in
+								<i class="fa-solid fa-right-to-bracket"></i></a>
+							</button>
+						{% endif %}
+					<!-- <li><a href="{% url 'login' %}"
+						class="p-4 text-gray-800 rounded-md hover:bg-gray-700 hover:text-white"><i class="fa-solid fa-right-to-bracket"></i>	
+					</a></li> -->
+					
+			
+			</ul>
+					</nav>
+
+					<span class="text-3xl cursor-pointer md:hidden block">
+						<ion-icon name="menu-outline"></ion-icon>
+					</span>
+					</div>
+			
+
+			<!-- buttons --->
+		 <!-- </div> -->
+
+		 <!-- Menu Icon for Mobile -->
+		<!-- <svg id="burger" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-black lg:hidden cursor-pointer"
+			fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+		</svg>  -->
+
+	</header>
+	</div>
+	<!-- navend -->
+	{% block content %}
+
+	<!-- Main Content 
+<main class="lg:px-28 md:py-24 lg:py-14 px-10 py-6 min-h-screen">
+    ... (your existing content code) ...
+</main> -->
+
+	{% endblock %}
+	<!-- footer -->
+	
+	<div class="text-gray-300 pl-14">________________________________________________________________________________________________________________________________________________________________________</div>
+
+	<footer class=" transform w-auto h-auto relative bg-white ">
+		<div class=" flex mt-3 mx-12 sm:mx-28 sm:justify-between">
+			<div class="mb-4 lg:columns-1 md:w-96">
+				<p class="text-gray-700 font-bold mb-1 mt-3">About Us</p>
+				<p class="text-gray-800 text-sm">We value diversity and belive that different backgrouds, ideas and
+					perspectives are what makes us stronger and more capable as a team. Each and every one of us adds to
+					our mission. We blend our strengths togehter, combining our experience and creative minds to bring
+					the best ideas.
+				</p>
+			</div>
+			<!-- <div class="mb-4  lg:mt-3">
+				<h3 class="text-white font-bold mb-2 lg:mb-4"> Social Media</h3>
+				<div class="">
+					<div class=" flex lg:items-center ">
+						<div class="lg:container lg:max-w-screen-lg ">
+							<div>
+								<div class="lg:flex lg:flex-wrap gap-2 ">
+
+									<a href="https://github.com/ilyasbabu/questio-bank-django">
+										<button
+											class="bg-gray-700 hover:bg-white hover:text-black  p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+											<svg xmlns="http://www.w3.org/2000/svg"
+												xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+												class="w-5" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+												<g fill="none">
+													<path fill-rule="evenodd" clip-rule="evenodd"
+														d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+														fill="currentColor" />
+												</g>
+											</svg>
+										</button>
+									</a>
+									<a href="">
+										<button
+											class="bg-blue-400 p-2 hover:bg-white hover:text-black font-semibold  text-white inline-flex items-center space-x-2 rounded">
+											<svg class="w-5 h-5 fill-current" role="img"
+												xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+												<path
+													d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+											</svg>
+										</button>
+									</a>
+									<a href="">
+										<button
+											class="bg-red-500 p-2 hover:bg-white hover:text-black font-semibold text-white inline-flex items-center space-x-2 rounded">
+											<svg class="w-5 h-5 fill-current" role="img" viewBox="0 0 24 24"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
+											</svg>
+										</button>
+									</a>
+									<a href="">
+										<button
+											class="bg-blue-600 p-2 hover:bg-white hover:text-black font-semibold text-white inline-flex items-center space-x-2 rounded">
+											<svg class="w-5 h-5 fill-current" role="img" viewBox="0 0 256 256"
+												xmlns="http://www.w3.org/2000/svg">
+												<g>
+													<path
+														d="M218.123122,218.127392 L180.191928,218.127392 L180.191928,158.724263 C180.191928,144.559023 179.939053,126.323993 160.463756,126.323993 C140.707926,126.323993 137.685284,141.757585 137.685284,157.692986 L137.685284,218.123441 L99.7540894,218.123441 L99.7540894,95.9665207 L136.168036,95.9665207 L136.168036,112.660562 L136.677736,112.660562 C144.102746,99.9650027 157.908637,92.3824528 172.605689,92.9280076 C211.050535,92.9280076 218.138927,118.216023 218.138927,151.114151 L218.123122,218.127392 Z M56.9550587,79.2685282 C44.7981969,79.2707099 34.9413443,69.4171797 34.9391618,57.260052 C34.93698,45.1029244 44.7902948,35.2458562 56.9471566,35.2436736 C69.1040185,35.2414916 78.9608713,45.0950217 78.963054,57.2521493 C78.9641017,63.090208 76.6459976,68.6895714 72.5186979,72.8184433 C68.3913982,76.9473153 62.7929898,79.26748 56.9550587,79.2685282 M75.9206558,218.127392 L37.94995,218.127392 L37.94995,95.9665207 L75.9206558,95.9665207 L75.9206558,218.127392 Z M237.033403,0.0182577091 L18.8895249,0.0182577091 C8.57959469,-0.0980923971 0.124827038,8.16056231 -0.001,18.4706066 L-0.001,237.524091 C0.120519052,247.839103 8.57460631,256.105934 18.8895249,255.9977 L237.033403,255.9977 C247.368728,256.125818 255.855922,247.859464 255.999,237.524091 L255.999,18.4548016 C255.851624,8.12438979 247.363742,-0.133792868 237.033403,0.000790807055">
+													</path>
+												</g>
+											</svg>
+										</button>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<div class="lg:mt-3 mb-4">
+				<h3 class="text-gray-700 font-bold mb-2 lg:mb-2">Navigate</h3>
+				<div class="columns-2 md:columns-3 lg:columns-2">
+					<a class="text-gray-800" href="/index">Find Medicines</a><br>
+					<a class="text-gray-800" href="login">Sign up/Login</a><br>
+					<a href="/about" class="text-gray-800">About</a><br>
+					<a href="/about" class="text-gray-800">Contact</a><br>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="flex justify-center">
+				<p class="text-gray-400"> Copyright &copy;
+					<script>document.write(new Date().getFullYear());</script> All rights reserved
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!-- footerend -->
+	{% block js %}
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			console.log("Script executed");
+			const burger = document.getElementById('burger');
+			const menu = document.getElementById('menu');
+
+			burger.addEventListener('click', function () {
+				menu.classList.toggle('hidden');
+				// menu.classList.toggle('lg:flex');
+            	// // menu.classList.toggle('left-0');
+				// menu.classList.toggle('flex-col');
+				// burger.classList.add('lg:flex-row');
+
+
+			});
+		});
+
+	</script>
+
+	{% endblock %}
+
+
+
+
+
+</body>
+
+</html>
