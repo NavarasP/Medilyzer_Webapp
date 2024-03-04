@@ -1,0 +1,8 @@
+env
+db.sqlite3
+__pycache__/
+node_modules/
+
+medilyzerapp/migrations
+users/migrations
+medilyzerapp/models
