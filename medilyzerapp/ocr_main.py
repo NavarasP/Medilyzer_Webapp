@@ -81,7 +81,7 @@ def recognize_and_compare(image_path):
             if most_similar_word:
                 most_similar_words_line.append(most_similar_word)
             else:
-                most_similar_words_line.append("")  # Empty string if no similar word found
+                most_similar_words_line.append(word)  # Empty string if no similar word found
 
         # Append the most similar words for the current line to the list
         most_similar_words_list.append(most_similar_words_line)

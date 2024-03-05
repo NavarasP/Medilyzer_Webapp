@@ -6,3 +6,5 @@ node_modules/
 medilyzerapp/migrations
 users/migrations
 medilyzerapp/models
+
+media
