@@ -42,7 +42,6 @@ def recognize_and_compare(image_path):
 
     image = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
 
-    # Crop image and get bounding boxes
     crop = page.detection(image)
     boxes = words.detection(crop)
     lines = words.sort_words(boxes)
@@ -74,7 +73,6 @@ def recognize_and_compare(image_path):
     for recognized_words_line in recognized_words_list:
         most_similar_words_line = []
 
-        # Iterate over each recognized word
         for word in recognized_words_line:
             # Find the most similar word from the word list
             most_similar_word = find_most_similar_word(word, words_list, threshold)
